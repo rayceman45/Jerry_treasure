@@ -7,6 +7,7 @@ Jerry_treasure | Scripts For Fivem Support Base 1.1, 1.2
 # function
 : มีเสียงปี๊บเวลาเข้าใกล่สมบัติ ถ้ายิ่งเข้าใกล้เสียงจะเร็วขึ้น
 : สุ่มจุดเกิดภายในวง Blips Radius
+: มี Animation ตอนใช้งาน และมี prop ถือ (สามารถปรับแต่งได้)
 
 # Contact
 FB : Jaturong Wandee | Discord : Jerry:4051
