@@ -25,7 +25,7 @@ AddEventHandler("Jerry_treasure:ChekStatus", function()
         TriggerEvent('Jerry_treasure:RandomCoords')
         TriggerServerEvent("Jerry_hunting:server:removeItems")
     else
-        exports["mythic_notify"]:SendAlert("error", ['CheckStatus'], 5000)
+        exports["mythic_notify"]:SendAlert("error", Config.Text['CheckStatus'], 5000)
     end
 end)
 
@@ -44,6 +44,7 @@ AddEventHandler("Jerry_treasure:RandomCoords", function()
     local coordsY = result.y + modY
 
     coordsZ = GetCoordZ(coordsX, coordsY)
+
     
     Start(result.x, result.y, result.z, coordsX, coordsY, coordsZ)
 end)
@@ -185,16 +186,19 @@ end
 
 -- GetCoord Z
 function GetCoordZ(x, y)
-	local groundCheckHeights = Config.grandZ
-	--
-	for i, height in ipairs(groundCheckHeights) do
-		local foundGround, z = GetGroundZFor_3dCoord(x, y, height)
-		--
-		if foundGround then
-			return z
-		end
-	end
-	return 41.33
+    while true do 
+        local groundCheckHeights = Config.grandZ
+        if z == nil then 
+            for i, height in ipairs(groundCheckHeights) do
+                local foundGround, z = GetGroundZFor_3dCoord(x, y, height)
+                --
+                if foundGround then
+                    return z
+                end
+            end
+        end
+        Wait(1000)
+    end
 end
 
 -- Create Blips
