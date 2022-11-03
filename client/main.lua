@@ -21,7 +21,7 @@ local obj = nil
 
 RegisterNetEvent("Jerry_treasure:ChekStatus")
 AddEventHandler("Jerry_treasure:ChekStatus", function()
-    if true then 
+    if not working then 
         TriggerEvent('Jerry_treasure:RandomCoords')
         TriggerServerEvent("Jerry_hunting:server:removeItems")
     else
