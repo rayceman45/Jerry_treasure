@@ -9,5 +9,4 @@ Jerry_treasure | Scripts For Fivem Support Base 1.1, 1.2
 : สุ่มจุดเกิดภายในวง Blips Radius
 
 # Contact
-FB : Jaturong Wandee
-Discord : Jerry:4051
+FB : Jaturong Wandee | Discord : Jerry:4051
