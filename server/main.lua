@@ -72,33 +72,29 @@ AddEventHandler('Jerry_hunting:server:addItems', function(itemName, count)
 		end
 	elseif Config.Base == '1.2' then
 		if xPlayer.canCarryItem(i2, c) then 
-			xPlayer.addInventoryItem(i2, c)
-
-			for k,v in pairs(Config.Animals) do
-				if v.items.bonus ~= nil then
-					for k,v in pairs(v.items.bonus) do
-						if math.random(1, 100) <= v.bonusdroprate then
-							local xPlayer = ESX.GetPlayerFromId(source)
-							local itn = v.itembonus
-							local itc = math.random(v.bonuscount[1], v.bonuscount[2]) 
-							
-							if xPlayer.canCarryItem(itn, itc) then 
-								xPlayer.addInventoryItem(itn, itc)
-								return
-							else
-								TriggerClientEvent("pNotify:SendNotification", source, {
-									text = '<span class="red-text">'..Config.Text['item_weight']..'</span> ',
-									type = "error",
-									timeout = 3000,
-									layout = "bottomCenter",
-									queue = "global"
-								})
-								return
-							end
+			if Config.Items.Item.bonusOnOff then
+				for k,v in pairs(Config.Items.Item.bonus) do
+					if math.random(1, 100) <= v.bonusdroprate then
+						local xPlayer = ESX.GetPlayerFromId(source)
+						local itn = xPlayer.getInventoryItem(v.itembonus)
+						local itc = math.random(v.bonuscount[1], v.bonuscount[2]) 
+						
+						if xPlayer.canCarryItem(itn, itc) then 
+							xPlayer.addInventoryItem(itn, itc)
+							return
+						else
+							TriggerClientEvent("pNotify:SendNotification", source, {
+								text = '<span class="red-text">'..Config.Text['item_weight']..'</span> ',
+								type = "error",
+								timeout = 3000,
+								layout = "bottomCenter",
+								queue = "global"
+							})
+							return
 						end
 					end
 				end
-			end
+			end		
 		else
 			TriggerClientEvent("pNotify:SendNotification", source, {
 				text = '<span class="red-text">'..Config.Text['item_bonus_weight']..'</span> ',
