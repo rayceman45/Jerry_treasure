@@ -60,8 +60,7 @@ function Start(x, y, z, coordsX, coordsY, coordsZ)
     PlaySoundFrontend(-1, "download_start", "DLC_BTL_Break_In_Sounds", true)
     playanim()
     Blips(x, y, z)
-    print(coordsX, coordsY, coordsZ)
-    print('base' .. x, y, z)
+    TriggerServerEvent("Jerry_hunting:server:removeItems")
 
     local sw = 100
     local anim = false
