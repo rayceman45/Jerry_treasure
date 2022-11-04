@@ -23,7 +23,6 @@ RegisterNetEvent("Jerry_treasure:ChekStatus")
 AddEventHandler("Jerry_treasure:ChekStatus", function()
     if not working then 
         TriggerEvent('Jerry_treasure:RandomCoords')
-        TriggerServerEvent("Jerry_hunting:server:removeItems")
     else
         exports["mythic_notify"]:SendAlert("error", Config.Text['CheckStatus'], 5000)
     end
