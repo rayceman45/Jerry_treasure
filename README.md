@@ -1,5 +1,7 @@
 # Jerry_treasure
 
+# update 1.0.2 | Fix GetCoord
+
 # update 1.0.1 | แก้ไอเทมลบ ผิดปกติ
 
 Jerry_treasure | Scripts For Fivem Support Base 1.1, 1.2
