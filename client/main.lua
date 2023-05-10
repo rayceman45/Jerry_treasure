@@ -42,10 +42,14 @@ AddEventHandler("Jerry_treasure:RandomCoords", function()
     local coordsX = result.x + modX
     local coordsY = result.y + modY
 
-    coordsZ = GetCoordZ(coordsX, coordsY)
-
-    
-    Start(result.x, result.y, result.z, coordsX, coordsY, coordsZ)
+    while true do
+        coordsZ = GetCoordZ(coordsX, coordsY)
+        if coordsZ ~= 0 then
+            Start(result.x, result.y, result.z, coordsX, coordsY, coordsZ)
+            return
+        end
+        Wait(500)
+    end
 end)
 
 function Start(x, y, z, coordsX, coordsY, coordsZ)
@@ -184,18 +188,15 @@ end
 
 -- GetCoord Z
 function GetCoordZ(x, y)
-    while true do 
-        local groundCheckHeights = Config.grandZ
-        if z == nil then 
-            for i, height in ipairs(groundCheckHeights) do
-                local foundGround, z = GetGroundZFor_3dCoord(x, y, height)
-                --
-                if foundGround then
-                    return z
-                end
+    local groundCheckHeights = Config.grandZ
+    if z == nil then 
+        for i, height in ipairs(groundCheckHeights) do
+            local foundGround, z = GetGroundZFor_3dCoord(x, y, height)
+            --
+            if foundGround then
+                return z
             end
         end
-        Wait(1000)
     end
 end
 
