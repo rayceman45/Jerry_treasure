@@ -14,4 +14,4 @@ Jerry_treasure | Scripts For Fivem Support Base 1.1, 1.2
 : มี Animation ตอนใช้งาน และมี prop ถือ (สามารถปรับแต่งได้)
 
 # Contact
-FB : Jaturong Wandee | Discord : Jerry#4051
+FB : Jaturong Wandee | Discord : jerry4061
